@@ -1,18 +1,22 @@
 # Create array to store student names
 # Create array to store student ID numbers
 # Create array to store student email addresses
-
 names = []
+
+File.open("student_names.txt").each do |student_name|
+  names << student_name
+end
+
 ids = []
 emails = []
 
 # ask user for 5 names
-5.times do
-	puts "Please give me a first and last name:"
-	student_name = gets.chomp.upcase
-	names << student_name
-end
-puts names
+# 5.times do
+# 	puts "Please give me a first and last name:"
+# 	student_name = gets.chomp.upcase
+# 	names << student_name
+# end
+# puts names
 
 # generate random ids (two periods means inclusive high value)
 # account for potential duplicates
