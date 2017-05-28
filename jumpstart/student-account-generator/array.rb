@@ -1,44 +1,49 @@
-# create array with student names
-# create array with ids
-# create array with emails
+# Create array to store student names
+# Create array to store student ID numbers
+# Create array to store student email addresses
 
-names = Array.new
+names = []
+ids = []
+emails = []
 
-# times loop to ask for 5 names all upcase and put into names array
-
-2.times do
-	puts "Please enter in a name, first and last please:"
-	names << gets.chomp.upcase
+# ask user for 5 names
+5.times do
+	puts "Please give me a first and last name:"
+	student_name = gets.chomp.upcase
+	names << student_name
 end
-
 puts names
 
-# times loop to generate random student ids and put into id array
-
-ids = Array.new
-
-2.times do
-	id = rand(111111..999999)
-	ids << id
+# generate random ids (two periods means inclusive high value)
+# account for potential duplicates
+5.times do
+	random_id = rand(111111..999999)
+	until random_id.to_s.split(//).last(3).join.to_i >= 100 # ensure number is 3 digits long
+		random_id = rand(111111..999999)
+	end
+	# if random_id is equal to any of the elements already in the array generate another #
+	if ids.include?(random_id)
+		random_id = rand(111111..999999)
+		until random_id.to_s.split(//).last(3).join.to_i >= 100 # ensure new number is 3 digits long
+		random_id = rand(111111..999999)
+		end
+	else
+		ids << random_id
+	end
 end
-
 puts ids
 
-# times loop to generate student emails using names and ids
+# write a times loop to generate student email addresses in the format: (first inital   # )+(last name)+(last 3 digits of student ID number)@adadevelopersacademy.org
 
-temp_number_list = [0,1]
+temp_number_list = [0, 1, 2, 3, 4]
 
 temp_number_list.each do |temp_number|
-
-
-puts names[temp_number].chars.first.to_s + names[temp_number].split.last.to_s + ids[temp_number].to_s.split(//).last(3).join.to_s + "@adadevelopers.com"
+	# account for names with 2 first names
+	if names[temp_number].split.size == 3
+		new_names = names[temp_number].split
+		first_two = new_names[0].chars.first + new_names[1].chars.first
+		puts first_two + names[temp_number].split.last + ids[temp_number].to_s.split(//).last(3).join.to_s + "@adadevelopers.com"
+	else
+		puts names[temp_number].chars.first + names[temp_number].split.last + ids[temp_number].to_s.split(//).last(3).join.to_s + "@adadevelopers.com"
+	end
 end
-
-# get first character of each string in array names
-# puts names[0].chars.first
-
-# get last name only from each string in array names
-# puts names.collect{|s|s.split.last}
-
-# get last 3 digits of each id in ids array
-# puts ids[0].to_s.split(//).last(3).join
