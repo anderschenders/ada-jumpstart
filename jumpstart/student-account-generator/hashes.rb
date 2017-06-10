@@ -7,7 +7,7 @@ all_students = []
 # use array and if statement to ensure no duplicate ids
 duplicates = []
 
-2.times do
+5.times do
 	ind_student_info = {}
 	puts "Please give me a first and last name:"
 	student_name = gets.chomp.upcase
@@ -16,23 +16,20 @@ duplicates = []
 # use until loop to ensure last 3 digits is greater or equal to 100
 
   random_id = rand(111111..999999)
-  puts "random id 1: #{random_id}"
 	until random_id.to_s.split(//).last(3).join.to_i >= 100
 		random_id = rand(111111..999999)
 	end
-  puts "random id 2: #{random_id}"
+
   if duplicates.include?(random_id)
     random_id = rand(111111..999999)
     until random_id.to_s.split(//).last(3).join.to_i >= 100
       random_id = rand(111111..999999)
     end
     duplicates << random_id
-    puts "duplicates array: #{duplicates}"
     ind_student_info["id"] = random_id
   else
     ind_student_info["id"] = random_id
     duplicates << random_id
-    puts "duplicates array: #{duplicates}"
   end
 
 
