@@ -10,7 +10,7 @@ end
 count = IO.readlines("student_names.txt").size
 puts count
 
-puts "NEW LINE IN NEW BRANCH"
+puts "NEW LINE IN NEW BRANCH!"
 ids = []
 emails = []
 
