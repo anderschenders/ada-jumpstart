@@ -10,7 +10,6 @@ end
 count = IO.readlines("student_names.txt").size
 puts count
 
-puts "NEW LINE IN NEW BRANCH!"
 ids = []
 emails = []
 
@@ -29,24 +28,28 @@ count.times do
 	until random_id.to_s.split(//).last(3).join.to_i >= 100 # ensure number is 3 digits long
 		random_id = rand(111111..999999)
 	end
+  puts "random id 1: #{random_id}"
 	# if random_id is equal to any of the elements already in the array generate another #
 	if ids.include?(random_id)
 		random_id = rand(111111..999999)
 		until random_id.to_s.split(//).last(3).join.to_i >= 100 # ensure new number is 3 digits long
 		random_id = rand(111111..999999)
 		end
+    puts "random id 2: #{random_id}"
 	else
 		ids << random_id
 	end
+  puts "random id array: #{ids}"
 end
 
 # utilize array for number of students
 # write a loop to generate student email addresses in the format: (first inital)+(last name)+(last 3 digits of student ID number)@adadevelopersacademy.org
 
 temp_number_list = []
-until count == -1 do
+until count == 0 do
   temp_number_list << count - 1
   count -= 1
+  puts count 
 end
 
 temp_number_list.each do |temp_number|
