@@ -7,7 +7,7 @@ all_students = []
 # use array and if statement to ensure no duplicate ids
 duplicates = []
 
-5.times do
+6.times do
 	ind_student_info = {}
 	puts "Please give me a first and last name:"
 	student_name = gets.chomp.upcase

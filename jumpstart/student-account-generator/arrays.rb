@@ -8,7 +8,6 @@ File.open("student_names.txt").each do |student_name|
 end
 
 count = IO.readlines("student_names.txt").size
-puts count
 
 ids = []
 emails = []
